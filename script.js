@@ -285,6 +285,3 @@ function closeModalOutside(e) {
   if (e.target === document.getElementById('modal-overlay')) closeModal();
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-// Auto-calculate on load
-window.addEventListener('load', calculate);
