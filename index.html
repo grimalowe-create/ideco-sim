@@ -330,6 +330,13 @@
       margin-bottom: 8px;
     }
 
+    .enrollment-note {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
     /* Modal */
     .modal-overlay {
       display: none;
@@ -383,6 +390,18 @@
     <h2>条件を入力</h2>
 
     <div class="form-group">
+      <label for="enrollment">加入区分</label>
+      <select id="enrollment">
+        <option value="jieigyou">自営業・フリーランス（第1号被保険者）</option>
+        <option value="kaisyain_nodc" selected>会社員（企業年金なし）</option>
+        <option value="kaisyain_dc">会社員（企業型DCのみ）</option>
+        <option value="kaisyain_db">会社員（DB等あり）・公務員</option>
+        <option value="sengyoushufu">専業主婦・主夫（第3号被保険者）</option>
+      </select>
+      <p class="enrollment-note">※2026年12月の制度改正で上限額が引き上げ予定です（自営業75,000円、第2号62,000円）</p>
+    </div>
+
+    <div class="form-group">
       <label>現在の年齢 <span id="age-val">35</span> 歳</label>
       <input type="range" id="age" min="20" max="59" value="35" step="1">
       <div class="range-labels"><span>20歳</span><span>59歳</span></div>
@@ -390,8 +409,8 @@
 
     <div class="form-group">
       <label>毎月の掛金額 <span id="monthly-val">23,000</span> 円</label>
-      <input type="range" id="monthly" min="5000" max="68000" value="23000" step="1000">
-      <div class="range-labels"><span>5,000円</span><span>68,000円</span></div>
+      <input type="range" id="monthly" min="5000" max="23000" value="23000" step="1000">
+      <div class="range-labels"><span>5,000円</span><span id="monthly-max-label">23,000円</span></div>
     </div>
 
     <div class="form-group">

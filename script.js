@@ -1,3 +1,26 @@
+// 2026年12月改正で上限変更予定。最新は https://www.ideco-koushiki.jp/ で確認
+const ENROLLMENT_LIMITS = {
+  jieigyou: 68000,
+  kaisyain_nodc: 23000,
+  kaisyain_dc: 20000,
+  kaisyain_db: 20000,
+  sengyoushufu: 23000,
+};
+
+function updateMonthlySliderMax() {
+  const max = ENROLLMENT_LIMITS[document.getElementById('enrollment').value];
+  const slider = document.getElementById('monthly');
+  slider.max = max;
+  document.getElementById('monthly-max-label').textContent = max.toLocaleString() + '円';
+  if (parseInt(slider.value) > max) {
+    slider.value = max;
+    document.getElementById('monthly-val').textContent = max.toLocaleString();
+  }
+}
+
+document.getElementById('enrollment').addEventListener('change', updateMonthlySliderMax);
+updateMonthlySliderMax();
+
 // --- Slider live display ---
 function bindSlider(id, displayId, format) {
   const el = document.getElementById(id);
