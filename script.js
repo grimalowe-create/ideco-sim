@@ -14,8 +14,8 @@ function updateMonthlySliderMax() {
   document.getElementById('monthly-max-label').textContent = max.toLocaleString() + '円';
   if (parseInt(slider.value) > max) {
     slider.value = max;
-    document.getElementById('monthly-val').textContent = max.toLocaleString();
   }
+  slider.dispatchEvent(new Event('input'));
 }
 
 document.getElementById('enrollment').addEventListener('change', updateMonthlySliderMax);
